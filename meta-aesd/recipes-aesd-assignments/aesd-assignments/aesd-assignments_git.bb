@@ -28,8 +28,8 @@ TARGET_CC_ARCH += "${LDFLAGS}"
 RDEPENDS_${PN} = "libgcc"
 
 inherit update-rc.d
-INITSCRIPT_PACKAGES = “${PN}”
-INITSCRIPT_NAME:${PN} = “aesdsocket-start-stop.sh”
+INITSCRIPT_PACKAGES = "${PN}"
+INITSCRIPT_NAME:${PN} = "aesdsocket-start-stop.sh"
 
 do_configure () {
 	:
