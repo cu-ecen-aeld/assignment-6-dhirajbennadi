@@ -23,6 +23,10 @@ S = "${WORKDIR}/git/server"
 # (and remove comment)
 #TARGET_LDFLAGS += "-pthread -lrt"
 
+EXTRA_OEMAKE += "'CC=${CC}'"
+TARGET_CC_ARCH += "${LDFLAGS}"
+RDEPENDS_${PN} = "libgcc"
+
 inherit update-rc.d
 INITSCRIPT_PACKAGES = “${PN}”
 INITSCRIPT_NAME:${PN} = “aesdsocket-start-stop.sh”
