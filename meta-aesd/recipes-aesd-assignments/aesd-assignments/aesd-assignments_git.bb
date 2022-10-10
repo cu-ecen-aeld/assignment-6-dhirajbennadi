@@ -18,17 +18,17 @@ S = "${WORKDIR}/git/server"
 
 # TODO: Add the aesdsocket application and any other files you need to install
 # See http://git.yoctoproject.org/cgit.cgi/poky/plain/meta/conf/bitbake.conf?h=warrior for yocto path prefixes
-FILES_${PN} += "${bindir}/aesdsocket"
-FILES_${PN} += "${bindir}/aesdsocket-start-stop.sh"
+FILES:${PN} += "${bindir}/aesdsocket"
+FILES:${PN} += "${bindir}/aesdsocket-start-stop.sh"
 # TODO: customize these as necessary for any libraries you need for your application
 TARGET_LDFLAGS += "-pthread -lrt"
 EXTRA_OEMAKE += "'CC=${CC}'"
 TARGET_CC_ARCH += "${LDFLAGS}"
-RDEPENDS_${PN} = "libgcc"
+RDEPENDS:${PN} = "libgcc"
 
 inherit update-rc.d
 INITSCRIPT_PACKAGES = "${PN}"
-INITSCRIPT_NAME_${PN} = "aesdsocket-start-stop.sh"
+INITSCRIPT_NAME:${PN} = "aesdsocket-start-stop.sh"
 
 
 do_configure () {
